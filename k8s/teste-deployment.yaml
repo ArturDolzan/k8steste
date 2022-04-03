@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teste-deployment
+  labels:
+    app: teste
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: teste
+  template:
+    metadata:
+      labels:
+        app: teste
+    spec:
+      containers:
+      - name: simplenode
+        image: arturdolzan/simplenode:latest
+        ports:
+        - containerPort: 3000
